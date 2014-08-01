@@ -34,6 +34,11 @@ if (Meteor.isClient) {
         //BUG #1 the data nodes on the element set by jquery are cleared before removeElement
         console.log($(node).data('test'));
 
+	//This seems to work but only because this example works via a click event
+	//And _templateInstance is set to the element receiving the click for some reason.
+	//But when using timers or indirect ways of removing a element _templateInstance is undefined.
+	console.log(UI._templateInstance().data);
+
         //BUG #2 getElementData returns null for the to be removed node
         console.log(data.name);
 
